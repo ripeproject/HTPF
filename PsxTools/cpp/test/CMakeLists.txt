@@ -25,7 +25,7 @@ PRIVATE
 
 target_link_libraries(verification_tests
 PRIVATE
-    Catch2::Catch2
+    Catch2::Catch2WithMain
     psx_utils_static
 )
 

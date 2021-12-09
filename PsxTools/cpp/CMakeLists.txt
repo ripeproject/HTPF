@@ -4,7 +4,7 @@
 # Usage:
 # cmake -G <generator> -D CMAKE_INSTALL_PREFIX=<path to support libraries>
 
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.16)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

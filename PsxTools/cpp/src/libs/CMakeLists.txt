@@ -41,21 +41,22 @@ PRIVATE
   ${PSX_UTILS_PRIVATE_FILES}
 )
 
-#
-# Setting MSVC_STATIC_RUNTIME determines which MSVC runtime to use...
-#
-if (MSVC_STATIC_RUNTIME)
-	# To use MultiThreaded (-MT) and MultiThreadedDebug (-MTd)
-	message("The PsxUtils static library is using the static runtime libraries.")
+if (WIN32)
+  #
+  # Setting MSVC_STATIC_RUNTIME determines which MSVC runtime to use...
+  #
+  if (MSVC_STATIC_RUNTIME)
+    # To use MultiThreaded (-MT) and MultiThreadedDebug (-MTd)
+    message("The PsxUtils static library is using the static runtime libraries.")
 
-	set_property(TARGET psx_utils_static PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-else()
-	# To use MultiThreadedDLL (-MD) and MultiThreadedDebugDLL (-MDd)
-	message("The PsxUtils static library is using the dynamic runtime libraries.")
+    set_property(TARGET psx_utils_static PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  else()
+    # To use MultiThreadedDLL (-MD) and MultiThreadedDebugDLL (-MDd)
+    message("The PsxUtils static library is using the dynamic runtime libraries.")
 
-	set_property(TARGET psx_utils_static PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-endif()
-
+    set_property(TARGET psx_utils_static PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  endif()
+endif(WIN32)
 
 #
 # The Phenospex Utilities Shared Library
@@ -86,6 +87,7 @@ PRIVATE
 #
 # Shared libraries (DLLs) in Windows should always use MSVC dynamic runtime libraries
 # Force use MultiThreadedDLL (-MD) and MultiThreadedDebugDLL (-MDd)
+#
 set_property(TARGET psx_utils_shared PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
 
 #

@@ -1,14 +1,7 @@
 
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-#include "catch2/catch.hpp"
+//#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include <catch2/catch_all.hpp>
 #include "../src/libs/phenospex_utils.hpp"
-
-#include <fstream>
-#include <memory>
-#ifdef WIN32
-#else
-	#include <unistd.h>
-#endif
 
 
 TEST_CASE( "Simple verification of scanner to scale conversions", "[verificaton]" )

@@ -33,15 +33,16 @@ enum
 // handlers) which process them. It can be also done at run-time, but for the
 // simple menu events like this the static method is much simpler.
 wxBEGIN_EVENT_TABLE(MainFrame, wxDialog)
+
 EVT_BUTTON(ID_DONE, MainFrame::OnDone)
 EVT_CLOSE(MainFrame::OnClose)
 
-EVT_TEXT(ID_SCANNER_BLOCK, OnComputeScaleLocation)
-EVT_TEXT(ID_SCANNER_COLUMN, OnComputeScaleLocation)
-EVT_TEXT(ID_SCANNER_ROW, OnComputeScaleLocation)
+EVT_TEXT(ID_SCANNER_BLOCK, MainFrame::OnComputeScaleLocation)
+EVT_TEXT(ID_SCANNER_COLUMN, MainFrame::OnComputeScaleLocation)
+EVT_TEXT(ID_SCANNER_ROW, MainFrame::OnComputeScaleLocation)
 
-EVT_TEXT(ID_SCALE_COLUMN, OnComputeScannerLocation)
-EVT_TEXT(ID_SCALE_ROW, OnComputeScannerLocation)
+EVT_TEXT(ID_SCALE_COLUMN, MainFrame::OnComputeScannerLocation)
+EVT_TEXT(ID_SCALE_ROW, MainFrame::OnComputeScannerLocation)
 
 wxEND_EVENT_TABLE()
 
@@ -170,5 +171,4 @@ void MainFrame::OnComputeScaleLocation(wxCommandEvent& event)
 
 	mScaleColumnEditBox->ChangeValue(result.col);
 	mScaleRowEditBox->ChangeValue(wxString::Format(wxT("%d"), result.row));
-
 }
