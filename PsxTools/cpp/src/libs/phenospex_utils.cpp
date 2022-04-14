@@ -97,10 +97,12 @@ sScannerPosition_t ScaleToScannerPosition(char col, int8_t row)
 
     sScannerPosition_t result;
 
-    result.col = row % 6;
+    auto c = row % 6;
+    result.col = c;
     if (result.col == 0) result.col = 6;
 
-    int b = (row / 6) + 1;
+    int b = (row / 6);
+    if (c > 0) ++b;
     if (b > 4) ++b;
     if (b > 9) ++b;
 
