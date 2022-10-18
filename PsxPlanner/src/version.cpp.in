@@ -1,0 +1,27 @@
+
+#include "ssnx/version.hpp"
+
+std::string getVersionString()
+{
+	return "@septentrio_VERSION@";
+}
+
+unsigned int getMajorVersion()
+{
+	return @septentrio_VERSION_MAJOR@ +0;
+}
+
+unsigned int getMinorVersion()
+{
+	return @septentrio_VERSION_MINOR@ +0;
+}
+
+unsigned int getPatchVersion()
+{
+	return @septentrio_VERSION_PATCH@ +0;
+}
+
+unsigned int getTweakVersion()
+{
+	return @septentrio_VERSION_TWEAK@ +0;
+}
