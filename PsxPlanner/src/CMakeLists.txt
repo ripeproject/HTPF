@@ -37,6 +37,8 @@ target_compile_features(PsxPlanner PRIVATE cxx_std_17)
 target_sources(PsxPlanner
 PRIVATE
 
+	PsxPlanner.cpp
+
 	${resource_files}
 )
 
